@@ -1,6 +1,6 @@
 # [CLASS] : 03 Dec, 24
 
-
+# Q. Print two elemets from the list that sums to given target. 
 # target = int(input("Enter target"))
 # list = [1,2,3,4,5,6,7,8,9]
 # for i in list:
@@ -10,7 +10,7 @@
 
 
 
-
+# Q. Print the name if it contains any two vowels.
 # list = ["Ram","adarsh","Raju"]
 # # count = 0
 # for i in list:
@@ -24,11 +24,11 @@
 
 
 
-
-# list = "Hi there, this is a a demo text to to check the the deletion"
-# st = list.split(" ")
-# alt = []
-# for data in st:
-#     if data not in alt:
-#         alt.append(data)
-# print(alt)
+# Q. Delete duplicate words from a given sentence
+list = "Hi there, this is a a demo text to to check the the deletion"
+splitSen = list.split(" ")
+uniqueSen = []
+for data in splitSen:
+    if data not in uniqueSen:
+        uniqueSen.append(data)
+print(uniqueSen)
