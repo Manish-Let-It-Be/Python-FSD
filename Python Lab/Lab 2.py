@@ -112,3 +112,44 @@ print("Perimeter of rectangle with lenght ", {lenght}, "and breadth ", {breadth}
 
 # Homework: Write a program to take input (numbers) separeted by coma and then find the target sum of two numbers without using SPLIT function.
 
+def find_target_sum(numbers, target):
+    for i in range(len(numbers)):
+        for j in range(i + 1, len(numbers)):
+            if numbers[i] + numbers[j] == target:
+                return (numbers[i], numbers[j])
+    return None
+
+
+input_numbers = input("Enter numbers separated by commas: ")
+target = int(input("Enter the target sum: "))
+
+numbers = []
+current_number = ''
+for char in input_numbers:
+    if char == ',':
+        if current_number:  
+            numbers.append(int(current_number))
+            current_number = ''  
+    else:
+        current_number += char  
+
+
+if current_number:
+    numbers.append(int(current_number))
+
+
+result = find_target_sum(numbers, target)
+
+
+if result:
+    print(f"The two numbers that sum to {target} are: {result[0]} and {result[1]}")
+else:
+    print("No two numbers found that sum to the target.")
+
+
+'''
+The f in print(f"....") indicates that the string is an f-string, which is a feature introduced in Python 3.6. 
+F-strings provide a way to embed expressions inside string literals, using curly braces {}. This allows for easier and
+more readable string formatting.
+
+'''
