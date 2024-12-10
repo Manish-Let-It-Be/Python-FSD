@@ -78,7 +78,7 @@ else:
 
 # PRACTICAL : 
 # Set 1 => Practical 1.
-# Write a program to convert Celcius to Fehrenheit and vice - versa after taking input from the user
+# AIM: Write a program to convert Celcius to Fehrenheit and vice - versa after taking input from the user
 '''
 celcius = float(input("Enter Temperature in Celcius: "))
 fehrenheit = float(9/5 * celcius + 32)
@@ -96,7 +96,7 @@ print("Temparature in celcius for ", fehrenheit , "degree fehrenheit is ", celci
 
 # PRACTICAL : 
 # Set 1 => Practical 2.
-# Write a program to calculate the area and perimeter of a rectangle
+# AIM: Write a program to calculate the area and perimeter of a rectangle
 
 '''
 lenght = float(input("Enter lenght: "))
