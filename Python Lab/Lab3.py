@@ -1,5 +1,6 @@
 # LAB : 3
 # 10 Dec, 24
+# I was absent
 """
 Performed all the Practicals of Set 1
 """
@@ -106,6 +107,20 @@ reversed_s = s[::-1]  # "olleh"
 # Set 1 => Practical 8.
 # AIM : A program that sorts a list of numbers in Ascending or Descending Order.
 
+## APPROACH 1 ##
+# elements = int(input("Enter the number of elements: "))
+# lst = []
+# for i in range(elements):
+#     num = int(input("Enter a number: "))
+#     lst.append(num)
+# print(f"Original List: {lst}")
+# lst.sort()
+# print(f"Sorted List in Ascending Order: {lst}")
+# lst.sort(reverse=True)
+# print(f"Sorted List in Descending Order: {lst}")
+
+
+## APPROACH 2 ##
 # def sort(numbers, order):
 #     if order.lower() == "asc":
 #         return sorted(numbers)                                      # sorted(iterables, key=len, reverse=True/False)
@@ -133,15 +148,27 @@ reversed_s = s[::-1]  # "olleh"
 # number = int(input("Enter a number: "))
 # for i in range(1, 11):
 #     print(f"{number} x {i} = {number * i}")
-#     i += 1
-#     if i == 11:
-#         break
+    
 
 
 # PRACTICAL : 
 # Set 1 => Practical 10.
 # AIM : A program that converts a given number from one base to another.
 
+## APPROACH 1 ##
+# n = int(input("Enter a decimal number: "))
+
+# binary = bin(n)
+# print(f"Binary: {binary}")
+
+# hexadecimal = hex(n)
+# print(f"Hexadecimal: {hexadecimal}")
+
+# octal = oct(n)
+# print(f"Octal: {octal}")
+
+
+## APPROACH 2 ##
 # def to_binary(number):
 #     return bin(number)[2:]  # `bin` adds '0b' prefix, [2:] removes it
 
