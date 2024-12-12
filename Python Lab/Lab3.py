@@ -6,7 +6,7 @@ Performed all the Practicals of Set 1
 
 # PRACTICAL : 
 # Set 1 => Practical 3.
-# AIM : A program that generates a random password of a specified lenght.
+# AIM : A program that generates a random password of a specified lenght given by user.
 
 # import random
 # import string
