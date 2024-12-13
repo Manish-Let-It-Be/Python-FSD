@@ -243,7 +243,7 @@ please enter the color: redasddfa
 
 '''
 
-'''
+
 import random
 
 # List of valid colors
@@ -330,4 +330,3 @@ if __name__ == "__main__":
     game = ColorGame()
     game.start_game()
 
-'''
