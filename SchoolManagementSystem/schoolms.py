@@ -19,7 +19,24 @@ class StudentManagementSystem:
     # Load data from Excel
     def load_from_excel(self):
         if not os.path.exists(database):
+            wb = Workbook()
+            wb.create_sheet(title="Students")
+            wb.create_sheet(title="Staff")
+            wb.create_sheet(title="Courses")
+            wb.save(database)
+            wb.close()
             return
+    
+        wb = load_workbook(database)
+        if "Students" not in wb.sheetnames:
+            wb.create_sheet(title="Students")
+        if "Staff" not in wb.sheetnames:
+            wb.create_sheet(title="Staff")
+        if "Courses" not in wb.sheetnames:
+            wb.create_sheet(title="Courses")
+        wb.save(database)
+        wb.close()
+
         wb = load_workbook(database)
         self.load_students(wb['Students'])
         self.load_staff(wb['Staff'])
