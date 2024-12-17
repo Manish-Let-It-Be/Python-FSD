@@ -7,9 +7,7 @@ import os
 from tabulate import tabulate  
 from openpyxl import Workbook, load_workbook
 
-database_students = "students.xlsx"
-database_staff = "staff.xlsx"
-database_courses = "courses.xlsx"
+database = "school_management.xlsx"
 
 class StudentManagementSystem:
     def __init__(self):
@@ -17,15 +15,18 @@ class StudentManagementSystem:
         self.staffs = []
         self.courses = []
         self.load_from_excel()
-        self.load_staff_from_excel()
-        self.load_courses_from_excel()
 
-    # Load student data from Excel
+    # Load data from Excel
     def load_from_excel(self):
-        if not os.path.exists(database_students):
+        if not os.path.exists(database):
             return
-        wb = load_workbook(database_students)
-        sheet = wb.active
+        wb = load_workbook(database)
+        self.load_students(wb['Students'])
+        self.load_staff(wb['Staff'])
+        self.load_courses(wb['Courses'])
+        wb.close()
+
+    def load_students(self, sheet):
         for row in sheet.iter_rows(min_row=2, values_only=True):
             student = {
                 'id': row[0],
@@ -38,14 +39,8 @@ class StudentManagementSystem:
                 'stream': row[7]
             }
             self.students.append(student)
-        wb.close()
 
-    # Load staff data from Excel
-    def load_staff_from_excel(self):
-        if not os.path.exists(database_staff):
-            return
-        wb = load_workbook(database_staff)
-        sheet = wb.active
+    def load_staff(self, sheet):
         for row in sheet.iter_rows(min_row=2, values_only=True):
             staff = {
                 'id': row[0],
@@ -56,14 +51,8 @@ class StudentManagementSystem:
                 'batch': row[5]
             }
             self.staffs.append(staff)
-        wb.close()
 
-    # Load course data from Excel
-    def load_courses_from_excel(self):
-        if not os.path.exists(database_courses):
-            return
-        wb = load_workbook(database_courses)
-        sheet = wb.active
+    def load_courses(self, sheet):
         for row in sheet.iter_rows(min_row=2, values_only=True):
             course = {
                 'id': row[0],
@@ -71,13 +60,17 @@ class StudentManagementSystem:
                 'assigned_staff': row[2]
             }
             self.courses.append(course)
-        wb.close()
 
-    # Save student data to Excel
+    # Save data to Excel
     def save_to_excel(self):
         wb = Workbook()
-        sheet = wb.active
-        sheet.title = "Students"
+        self.save_students(wb.create_sheet(title="Students"))
+        self.save_staff(wb.create_sheet(title="Staff"))
+        self.save_courses(wb.create_sheet(title="Courses"))
+        wb.save(database)
+        wb.close()
+
+    def save_students(self, sheet):
         headers = ['ID', 'Enrollment', 'Name', 'Email', 'Phone', 'Address', 'Course', 'Stream']
         sheet.append(headers)
         for student in self.students:
@@ -91,14 +84,8 @@ class StudentManagementSystem:
                 student['course'],
                 student['stream']
             ])
-        wb.save(database_students)
-        wb.close()
 
-    # Save staff data to Excel
-    def save_staff_to_excel(self):
-        wb = Workbook()
-        sheet = wb.active
-        sheet.title = "Staff"
+    def save_staff(self, sheet):
         headers = ['ID', 'Name', 'Email', 'Phone', 'Course', 'Batch']
         sheet.append(headers)
         for staff in self.staffs:
@@ -110,14 +97,8 @@ class StudentManagementSystem:
                 staff['course'],
                 staff['batch']
             ])
-        wb.save(database_staff)
-        wb.close()
 
-    # Save course data to Excel
-    def save_courses_to_excel(self):
-        wb = Workbook()
-        sheet = wb.active
-        sheet.title = "Courses"
+    def save_courses(self, sheet):
         headers = ['ID', 'Name', 'Assigned Staff']
         sheet.append(headers)
         for course in self.courses:
@@ -126,41 +107,36 @@ class StudentManagementSystem:
                 course['name'],
                 course['assigned_staff']
             ])
-        wb.save(database_courses)
-        wb.close()
 
-    # Generate unique ID for students
+    # Generate unique IDs and enrollment numbers
     def generate_unique_student_id(self):
         while True:
             student_id = random.randint(1000, 9999)
             if not any(student['id'] == student_id for student in self.students):
                 return student_id
 
-    # Generate unique enrollment number
     def generate_enrollment_number(self):
         while True:
             enrollment = ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
             if not any(student['enrollment'] == enrollment for student in self.students):
                 return enrollment
 
-    # Generate unique ID for staff
     def generate_unique_staff_id(self):
         while True:
             staff_id = 'S' + str(random.randint(1000, 9999))
             if not any(staff['id'] == staff_id for staff in self.staffs):
                 return staff_id
 
-    # Validate email
+    # Validate email and phone
     def validate_email(self, email):
         return '@' in email and '.' in email and not any(
             student['email'] == email for student in self.students
         ) and not any(staff['email'] == email for staff in self.staffs)
 
-    # Validate phone
     def validate_phone(self, phone):
         return len(phone) == 10 and phone.isdigit()
 
-    # Add a new student
+    # Student management methods
     def add_student(self):
         print("\nAdding New Student")
         print("-" * 20)
@@ -239,7 +215,6 @@ class StudentManagementSystem:
         self.save_to_excel()
         print(f"\nStudent added successfully! ID: {student['id']}")
 
-    # Delete a student by ID
     def delete_student(self):
         student_id = input("Enter student ID to delete: ")
         try:
@@ -254,7 +229,6 @@ class StudentManagementSystem:
         except ValueError:
             print("Invalid ID format!")
 
-    # Display all students
     def display_all_students(self):
         if not self.students:
             print("No students found!")
@@ -265,7 +239,6 @@ class StudentManagementSystem:
                 for s in self.students]
         print(tabulate(data, headers=headers, tablefmt='grid'))
 
-    # Display student by ID
     def display_student_by_id(self):
         student_id = input("Enter student ID: ")
         try:
@@ -279,7 +252,6 @@ class StudentManagementSystem:
         except ValueError:
             print("Invalid ID format!")
 
-    # Display student details
     def display_student(self, student):
         headers = ['Field', 'Value']
         data = [
@@ -294,7 +266,6 @@ class StudentManagementSystem:
         ]
         print(tabulate(data, headers=headers, tablefmt='grid'))
 
-    # Update student details
     def update_student(self):
         student_id = input("Enter student ID to update: ")
         try:
@@ -324,7 +295,7 @@ class StudentManagementSystem:
         except ValueError:
             print("Invalid ID format!")
 
-    # Staff Management
+    # Staff management methods
     def add_staff(self):
         print("\nAdding New Staff")
         print("-" * 20)
@@ -360,7 +331,7 @@ class StudentManagementSystem:
         }
 
         self.staffs.append(staff)
-        self.save_staff_to_excel()
+        self.save_to_excel()
         print(f"\nStaff added successfully! ID: {staff['id']}")
 
     def delete_staff(self):
@@ -371,7 +342,7 @@ class StudentManagementSystem:
         staff = next((s for s in self.staffs if s['id'] == staff_id), None)
         if staff:
             self.staffs.remove(staff)
-            self.save_staff_to_excel()
+            self.save_to_excel()
             print("Staff deleted successfully!")
         else:
             print("Staff not found!")
@@ -415,10 +386,10 @@ class StudentManagementSystem:
         if batch:
             staff['batch'] = batch
 
-        self.save_staff_to_excel()
+        self.save_to_excel()
         print("Staff updated successfully!")
 
-    # Course Management
+    # Course management methods
     def add_course(self):
         print("\nAdding New Course")
         print("-" * 20)
@@ -433,7 +404,7 @@ class StudentManagementSystem:
         }
 
         self.courses.append(course)
-        self.save_courses_to_excel()
+        self.save_to_excel()
         print(f"\nCourse added successfully! ID: {course['id']}")
 
     def delete_course(self):
@@ -441,7 +412,7 @@ class StudentManagementSystem:
         course = next((c for c in self.courses if c['id'] == int(course_id)), None)
         if course:
             self.courses.remove(course)
-            self.save_courses_to_excel()
+            self.save_to_excel()
             print("Course deleted successfully!")
         else:
             print("Course not found!")
@@ -470,7 +441,7 @@ class StudentManagementSystem:
         if assigned_staff:
             course['assigned_staff'] = assigned_staff
 
-        self.save_courses_to_excel()
+        self.save_to_excel()
         print("Course updated successfully!")
 
     # Main menu
