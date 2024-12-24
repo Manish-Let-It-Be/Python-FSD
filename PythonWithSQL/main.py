@@ -5,7 +5,7 @@ if __name__ == '__main__':
     connection=mysql.connector.connect(
         user="root",
         password="manish",
-        database="user_data",
+        database="demo_user",
         host="localhost"
     )
 
@@ -19,11 +19,11 @@ cursor=connection.cursor()
 
 query="select * from user_data"
 
-cursor.excecute(query)
+cursor.execute(query)
 
 # accessing the data from cusor object
 
-results=cursor.fetchall()  # this methis is returning all the rows from the cursor
+results=cursor.fetchall()  # this method is returning all the rows from the cursor
 
 for data in results:
     print(data)
