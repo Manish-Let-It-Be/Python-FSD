@@ -67,7 +67,7 @@ class StudentManagementSystem:
 
     # Generating unique ID, enrollment number, Staff ID and Course ID
     def generate_unique_student_id(self):
-        return len(self.students) + 1  # auto-incrementing ID
+        return len(self.students) + 1 if len(self.students) > 0 else 1  # auto-incrementing ID
 
     def generate_enrollment_number(self):
         while True:
