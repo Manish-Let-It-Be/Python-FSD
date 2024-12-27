@@ -1,3 +1,5 @@
+# Sir's Tutorial
+
 # import mysql.connector
 
 # if __name__ == '__main__':
@@ -29,7 +31,7 @@
 #     print(data)
 
 
-
+# CRUD Operations in SQL with Python
 
 import mysql.connector
 
@@ -102,9 +104,7 @@ if __name__ == '__main__':
         else:
             print("Invalid choice. Please try again.")
 
-        # Commit changes to the database after each operation
         connection.commit()
 
-    # Close the cursor and connection
     cursor.close()
     connection.close()

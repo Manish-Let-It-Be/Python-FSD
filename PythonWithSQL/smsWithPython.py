@@ -65,7 +65,6 @@ class StudentManagementSystem:
         cursor.close()
         conn.close()
 
-    # Generating unique ID, enrollment number, Staff ID and Course ID
     def generate_unique_student_id(self):
         return len(self.students) + 1 if len(self.students) > 0 else 1  # auto-incrementing ID
 
@@ -87,7 +86,6 @@ class StudentManagementSystem:
             if not any(course['id'] == course_id for course in self.courses):
                 return course_id
 
-    # Email and phone validation constraints  
     def validate_email(self, email):
         return '@' in email and '.' in email and not any(
             student['email'] == email for student in self.students
@@ -297,7 +295,6 @@ class StudentManagementSystem:
         else:
             print("Staff not found!")
 
-    # Search for staff by ID
     def search_staff_by_id(self):
         staff_id = input("Enter staff ID to search: ").strip()
         staff = next((s for s in self.staffs if s['id'] == staff_id), None)
@@ -394,7 +391,6 @@ class StudentManagementSystem:
         else:
             print("Course not found!")
 
-    # Search for course by ID
     def search_course_by_id(self):
         course_id = input("Enter course ID to search: ").strip()
         course = next((c for c in self.courses if c['id'] == course_id), None)
