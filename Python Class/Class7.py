@@ -40,14 +40,35 @@
 
 
 # Sir's example:
-class a:
-    def show(self):
-        print("Showing Parent class")
-class b(a):
-    def show(self):
-        print("Showing Child class")
+# class a:
+#     def show(self):
+#         print("Showing Parent class")
+# class b(a):
+#     def show(self):
+#         print("Showing Child class")
 
-obj1=a()
-obj2=b()
-obj1.show()
-obj2.show()
+# obj1=a()
+# obj2=b()
+# obj1.show()
+# obj2.show()
+
+
+# WAP to find the missing number in a given strings of numbers.
+
+# num = "124679"
+# output = 3 5 8
+
+import numbers
+def missing(string_num):
+    numbers = list((map( int, string_num )))
+    print(numbers)
+    for i in range(len(numbers)-1):
+        if numbers[i] + 1 != numbers[i+1]:
+            print(numbers[i]+1)
+
+string_num = "124679"
+missing(string_num)
+
+
+
+
