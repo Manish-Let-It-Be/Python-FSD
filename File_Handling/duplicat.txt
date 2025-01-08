@@ -1,0 +1,4 @@
+same
+not same
+diffrent
+alag

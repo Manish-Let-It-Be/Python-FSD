@@ -136,13 +136,13 @@
 
 # WAP to count the number of words in a gievn file.
 # Write function for many below programs
-def write_to_file(filename):
-    try: 
-        with open(filename, 'w') as file:
-            data = input("Enter data to write to the file: ")
-            file.writelines(data)
-    except Exception as e:
-        print(e.args)
+# def write_to_file(filename):
+#     try: 
+#         with open(filename, 'w') as file:
+#             data = input("Enter data to write to the file: ")
+#             file.writelines(data)
+#     except Exception as e:
+#         print(e.args)
 
 
 # def count_words_in_file(filename):  
@@ -221,38 +221,27 @@ def write_to_file(filename):
 #     print("Copied successfully.")
 
 
-# WAP to find the average of all the numbers stored in a file.
-
-
-def average(filename):
-    try:
-        with open(filename, 'r') as file:
-            data = file.read()
-            numbers = data.split()
-            total = sum(map(int, numbers))
-            average = total / len(numbers)
-            return average
-    except Exception as e:
-        print(e.args)
-
-if __name__ == "__main__":
-    filename = "data.txt"
-    write_to_file(filename)
-    avg = average(filename)
-    print(f"Average of numbers in the file: {avg}")
 
 
 
 
+
+
+
+####################################################################################################################################################
 
 # HOMEWORK : DATE : 07 Jan, 2025
 
+####################################################################################################################################################
+
+#1 WAP to find the average of all the numbers stored in a file.
+
+#2 WAP to remove duplicate lines from a file.
+
+#3 WAP to replace the found word with a new word.
+
+#4 WAP to remove blank lines from the file.
+
+#5 WAP to find the count of vowels and consonants in a given file.
 
 
-# WAP to remove duplicate lines from a file.
-
-# Write a program to remove the found word with a new word(replace).
-
-# WAP to remove blank lines from the file.
-
-# WAP to find the count of vowels and consonants in a given file.

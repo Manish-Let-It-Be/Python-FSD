@@ -1,1 +1,0 @@
-Hello, world! This file is created by write_in_file() function

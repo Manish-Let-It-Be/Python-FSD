@@ -1,4 +1,0 @@
-Hi this created by write_in_file_sir() function
-This is first line
-This is second line
-This is third line
