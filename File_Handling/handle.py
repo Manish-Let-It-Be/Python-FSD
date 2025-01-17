@@ -245,3 +245,31 @@
 #5 WAP to find the count of vowels and consonants in a given file.
 
 
+# WAP to delete a file.
+
+# def delete_file(filename):
+#     import os
+#     if os.path.exists(filename):
+#         os.remove(filename)
+#         print(f"File '{filename}' deleted successfully.")
+#     else:
+#         print(f"File '{filename}' does not exist.")
+
+# if __name__ == "__main__":
+#     filename = "check.txt"
+#     delete_file(filename)
+
+# WAP to rename a file.
+
+def rename_file(old_filename, new_filename):
+    import os
+    if os.path.exists(old_filename):
+        os.rename(old_filename, new_filename)
+        print(f"File '{old_filename}' renamed to '{new_filename}' successfully.")
+    else:
+        print(f"File '{old_filename}' does not exist.")
+
+if __name__ == "__main__":
+    old_filename = "data.txt"
+    new_filename = "dataUpdated.txt"
+    rename_file(old_filename, new_filename)
