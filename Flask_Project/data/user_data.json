@@ -2,40 +2,72 @@
     "divisions": {
         "4B1": [
             {
-                "id": "stuec878",
-                "name": "Manish Prasad",
-                "email": "m4manishp4prasad@gmail.com",
-                "phone": "+916203637600"
+                "id": "stu3d3d5",
+                "name": "Adarsh Kumar",
+                "email": "adarsh@gmail.com",
+                "phone": "987789987"
             },
             {
-                "id": "stuadd5e",
-                "name": "Shankar saq",
-                "email": "2303051240119@paruluniversity.ac.in",
-                "phone": "1233211233"
+                "id": "stu9a218",
+                "name": "Jay Dhodi",
+                "email": "jay@gmail.com",
+                "phone": "878987789"
             },
             {
-                "id": "stud91f8",
-                "name": "Dhanraj Prasad",
-                "email": "lifod39332@irnini.com",
-                "phone": "1233211233"
+                "id": "stub5876",
+                "name": "Omkar Chavan",
+                "email": "omkar@mail.com",
+                "phone": "877787898"
+            },
+            {
+                "id": "stue5232",
+                "name": "Rahul Kumar",
+                "email": "rahul@mail.com",
+                "phone": "623567879"
+            },
+            {
+                "id": "stu8b972",
+                "name": "Seeta Kumari",
+                "email": "seeta@gmail.com",
+                "phone": "7677876788"
             }
         ],
         "4B2": [
             {
-                "id": "stu095ab",
-                "name": "Manish Prasad",
-                "email": "m4manishp4prasad@gmail.com",
-                "phone": "+916203637600"
+                "id": "stu7e1d0",
+                "name": "Sanket Jha",
+                "email": "sanket@yandex.com",
+                "phone": "777678898"
+            },
+            {
+                "id": "stu0faaa",
+                "name": "Snehit Patel",
+                "email": "patel@gmail.com",
+                "phone": "676787898"
             }
         ],
         "4B3": [
             {
-                "id": "stu4aca7",
-                "name": "Adarsh Kumar",
-                "email": "adarsh@gmail.com",
-                "phone": "8778778787"
+                "id": "stu60e85",
+                "name": "Ram Mohan",
+                "email": "ram@mohan.com",
+                "phone": "767787876"
+            },
+            {
+                "id": "stua28ae",
+                "name": "Rajesh Kumar",
+                "email": "rajesh@microsoft.com",
+                "phone": "6766655567"
             }
         ],
-        "4B4": []
+        "4B4": [
+            {
+                "id": "stuc705b",
+                "name": "Gautam Kumar",
+                "email": "gautamkr@gmail.com",
+                "phone": "8283889876"
+            }
+        ],
+        "4B5": []
     }
 }
