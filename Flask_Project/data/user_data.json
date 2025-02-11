@@ -28,7 +28,14 @@
                 "phone": "+916203637600"
             }
         ],
-        "4B3": [],
+        "4B3": [
+            {
+                "id": "stu4aca7",
+                "name": "Adarsh Kumar",
+                "email": "adarsh@gmail.com",
+                "phone": "8778778787"
+            }
+        ],
         "4B4": []
     }
 }

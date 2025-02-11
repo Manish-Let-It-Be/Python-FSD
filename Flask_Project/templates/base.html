@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="container">
+        <h1>Welcome to Student Management System</h1>
         <div class="nav">
             <a href="{{ url_for('home') }}" class="nav-button">Home</a>
         </div>
@@ -21,6 +22,10 @@
             {% endif %}
         {% endwith %}
         {% block content %}{% endblock %}
+        <div>
+            <a href="{{ url_for('export_all_students') }}" class="export-button">Export Entire Students</a>
+        </div>
     </div>
+
 </body>
 </html>

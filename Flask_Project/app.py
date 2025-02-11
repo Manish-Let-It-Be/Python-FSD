@@ -137,5 +137,24 @@ def export_to_excel(division_name):
 
     return send_file(excel_file, as_attachment=True)
 
+
+@app.route('/export/all_students')
+def export_all_students():
+    data = load_data()
+    all_students = []
+    
+    # Collect all students with their division names
+    for division_name, students in data['divisions'].items():
+        for student in students:
+            student['division'] = division_name  # Add division name to student data
+            all_students.append(student)
+
+    df = pd.DataFrame(all_students)
+    excel_file = 'All_Students.xlsx'
+    df.to_excel(excel_file, index=False)
+
+    return send_file(excel_file, as_attachment=True)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
