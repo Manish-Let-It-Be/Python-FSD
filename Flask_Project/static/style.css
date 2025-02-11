@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0e0e0e;
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+h1, h2 {
+    color: #00bfff;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.nav {
+    margin-bottom: 20px;
+}
+
+.nav-button, .action-button {
+    padding: 10px 15px;
+    background-color: #00bfff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 10px; 
+    margin-bottom: 5px; 
+    margin-top: 5px ;
+}
+
+.delete-button {
+    padding: 10px 15px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 10px; 
+    margin-bottom: 10px; 
+}
+
+.export-button {
+    padding: 10px 15px;
+    background-color: #00ff0d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 10px; 
+    margin-bottom: 10px; 
+}
+
+.nav-button:hover, .action-button:hover {
+    background-color: #00ffa6;
+    color: #000000;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+}
+
+.delete-button:hover {
+    background-color: #000000;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+}
+
+.export-button:hover {
+    background-color: #005601;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #00bfff;
+}
+
+th {
+    background-color: #00bfff;
+}
+
+tr:hover {
+    background-color: rgba(0, 191, 255, 0.3);
+}
+
+.flashes {
+    list-style-type: none;
+    padding: 0;
+}
+
+.success {
+    color: #28a745;
+}
+
+.error {
+    color: #dc3545;
+}

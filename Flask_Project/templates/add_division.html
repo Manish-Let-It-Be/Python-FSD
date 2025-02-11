@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Add Division</h1>
+<form method="POST" action="{{ url_for('add_division') }}">
+    <label>Division Name:</label>
+    <input type="text" name="division_name" required>
+    <button type="submit" class="action-button">Add Division</button>
+</form>
+
+<h2>Existing Divisions</h2>
+<ul>
+    {% for division in divisions %}
+        <li>
+            {{ division }}
+            <form action="{{ url_for('delete_division', division_name=division) }}" method="POST" style="display:inline;">
+                <button type="submit" class="delete-button">Delete</button>
+            </form>
+            <a href="{{ url_for('choose_division', division_name=division) }}" class="action-button">Manage Students</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Add Student to {{ division_name }}</h1>
+<form method="POST" action="{{ url_for('add_student', division_name=division_name) }}">
+    <label>Name:</label>
+    <input type="text" name="name" required>
+    
+    <label>Email:</label>
+    <input type="email" name="email" required>
+    
+    <label>Phone:</label>
+    <input type="text" name="phone" required>
+    
+    <button type="submit" class="action-button">Add Student</button>
+</form>
+<a href="{{ url_for('choose_division', division_name=division_name) }}" class="action-button">Back to Students</a>
+{% endblock %}

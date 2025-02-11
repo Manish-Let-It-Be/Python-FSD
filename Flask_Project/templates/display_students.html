@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Students in {{ division_name }}</h1>
+<a href="{{ url_for('add_student', division_name=division_name) }}" class="action-button">Add Student</a>
+<a href="{{ url_for('export_to_excel', division_name=division_name) }}" class="export-button">Export to Excel</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.id }}</td>
+            <td>{{ student.name }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.phone }}</td>
+            <td>
+                <form action="{{ url_for('delete_student', division_name=division_name, student_id=student.id) }}" method="POST" style="display:inline;">
+                    <button type="submit" class="delete-button">Delete</button>
+                </form>
+                <a href="{{ url_for('update_student', division_name=division_name, student_id=student.id) }}" class="action-button">Update</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('home') }}" class="nav-button">Back to Home</a>
+{% endblock %}

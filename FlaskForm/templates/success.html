@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="success-container">
+        <h2>Registration Successful!</h2>
+        <p>Thank you for registering, {{ name }}. Your email is {{ email }}.</p>
+        <a href="/">Go back to the form</a>
+    </div>
+</body>
+</html>

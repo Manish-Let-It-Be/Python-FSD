@@ -1,0 +1,34 @@
+{
+    "divisions": {
+        "4B1": [
+            {
+                "id": "stuec878",
+                "name": "Manish Prasad",
+                "email": "m4manishp4prasad@gmail.com",
+                "phone": "+916203637600"
+            },
+            {
+                "id": "stuadd5e",
+                "name": "Shankar saq",
+                "email": "2303051240119@paruluniversity.ac.in",
+                "phone": "1233211233"
+            },
+            {
+                "id": "stud91f8",
+                "name": "Dhanraj Prasad",
+                "email": "lifod39332@irnini.com",
+                "phone": "1233211233"
+            }
+        ],
+        "4B2": [
+            {
+                "id": "stu095ab",
+                "name": "Manish Prasad",
+                "email": "m4manishp4prasad@gmail.com",
+                "phone": "+916203637600"
+            }
+        ],
+        "4B3": [],
+        "4B4": []
+    }
+}

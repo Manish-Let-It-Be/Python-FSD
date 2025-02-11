@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Manish Prasad",
+        "email": "m4manishp4prasad@gmail.com",
+        "password": "12213423"
+    },
+    {
+        "name": "Manish Prasad",
+        "email": "m4manishp4prasad@gmail.com",
+        "password": "12213423"
+    },
+    {
+        "name": "Shankar",
+        "email": "2303051240119@paruluniversity.ac.in",
+        "password": "1222222"
+    },
+    {
+        "name": "Shankar",
+        "email": "2303051240119@paruluniversity.ac.in",
+        "password": "121212112"
+    },
+    {
+        "name": "Manish Prasad",
+        "email": "2303051240119@paruluniversity.ac.in",
+        "password": "scrypt:32768:8:1$gWArBKn6PSWoQd6y$5893ed4c87f0d8abafaa01d7767dd95a1a7c8aa87d9be25fe733f68a98009f83c5fe3222d8de3989caa9932420f62def6d60ccd3bd122fdb42d4297507f4e168"
+    }
+]

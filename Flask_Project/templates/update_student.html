@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Update Student</h1>
+<form method="POST">
+    <label>Name:</label>
+    <input type="text" name="name" value="{{ student.name }}" required><br>
+    <label>Email:</label>
+    <input type="email" name="email" value="{{ student.email }}" required><br>
+    <label>Phone:</label>
+    <input type="text" name="phone" value="{{ student.phone }}" required><br>
+    <button type="submit">Update Student</button>
+</form>
+<a href="{{ url_for('choose_division', division_name=division_name) }}">Back to Students</a>
+{% endblock %}
