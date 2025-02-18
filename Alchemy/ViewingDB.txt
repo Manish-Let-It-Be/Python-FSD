@@ -1,0 +1,118 @@
+
+ 1. Using SQLite Browser (SQLite GUI Tool)
+   - Download and Install: You can download a SQLite browser like [DB Browser for SQLite](https://sqlitebrowser.org/).
+
+ 2. Using Command-Line SQLite3
+   - Open your terminal or command prompt and navigate to the directory where your `user_db` file is located.
+   - Run the following command:
+
+     ```bash
+     sqlite3 user_db
+     ```
+
+   - Once inside the SQLite shell, you can run SQL commands to view the database:
+     - To list all tables:
+
+       ```sql
+       .tables
+       ```
+
+     - To view the schema of the `User` table:
+
+       ```sql
+       .schema User
+       ```
+
+     - To view all data in the `User` table:
+
+       ```sql
+       SELECT * FROM User;
+       ```
+
+     - To exit the SQLite shell, type:
+
+       ```sql
+       .exit
+       ```
+
+
+ 3. Using Python Script
+   - You can also write a small Python script to query and print the database contents:
+
+     ```python
+     import sqlite3
+
+     # Connect to the SQLite database
+     conn = sqlite3.connect('user_db.db')
+     cursor = conn.cursor()
+
+     # Query the User table
+     cursor.execute("SELECT * FROM User")
+     rows = cursor.fetchall()
+
+     # Print the results
+     for row in rows:
+         print(row)
+
+     # Close the connection
+     conn.close()
+     ```
+
+ 4. Using Flask Shell
+   - You can use Flask's built-in shell to interact with your database:
+     - Run the following command in your terminal:
+
+       ```bash
+       flask shell
+       ```
+
+     - Inside the Flask shell, you can query the database using SQLAlchemy:
+
+       ```python
+       from app import db, User
+       users = User.query.all()
+       for user in users:
+           print(user.id, user.name, user.email)
+       ```
+
+ 5. Using a Web Interface
+   - If you want to view the data in a web interface, you can create a simple route in your Flask app to display the data:
+
+     ```python
+     @app.route('/view_data')
+     def view_data():
+         users = User.query.all()
+         return render_template('view_data.html', users=users)
+     ```
+
+     - Then, create a `view_data.html` template to display the data:
+
+       ```html
+       <!DOCTYPE html>
+       <html>
+       <head>
+           <title>View Data</title>
+       </head>
+       <body>
+           <h1>User Data</h1>
+           <table border="1">
+               <tr>
+                   <th>ID</th>
+                   <th>Name</th>
+                   <th>Email</th>
+               </tr>
+               {% for user in users %}
+               <tr>
+                   <td>{{ user.id }}</td>
+                   <td>{{ user.name }}</td>
+                   <td>{{ user.email }}</td>
+               </tr>
+               {% endfor %}
+           </table>
+       </body>
+       </html>
+       ```
+       
+     - Access the `/view_data` route in your browser to see the data.
+
+By using any of these methods, you can easily view the data in your SQLite database.
