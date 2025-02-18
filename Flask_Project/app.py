@@ -5,38 +5,31 @@ import os
 import pandas as pd
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Needed for flash messages
+app.secret_key = 'manish'  
 
-# Define the path to the JSON file
 DATA_FILE = 'data/user_data.json'
 
-# Ensure the data directory exists
 os.makedirs(os.path.dirname(DATA_FILE), exist_ok=True)
 
-# Load existing data
 def load_data():
     if os.path.exists(DATA_FILE):
         with open(DATA_FILE, 'r') as f:
             return json.load(f)
     return {'divisions': {}}
 
-# Save data to the JSON file
 def save_data(data):
     with open(DATA_FILE, 'w') as f:
         json.dump(data, f, indent=4)
 
-# Generate unique student ID
 def generate_student_id():
     return f"stu{uuid.uuid4().hex[:5]}"
 
-# Home route to display divisions
 @app.route('/')
 def home():
     data = load_data()
     divisions = data['divisions']
     return render_template('add_division.html', divisions=divisions)
 
-# Route to add a division
 @app.route('/add_division', methods=['POST'])
 def add_division():
     division_name = request.form['division_name']
@@ -51,7 +44,6 @@ def add_division():
 
     return redirect(url_for('home'))
 
-# Route to delete a division
 @app.route('/delete_division/<division_name>', methods=['POST'])
 def delete_division(division_name):
     data = load_data()
@@ -64,14 +56,12 @@ def delete_division(division_name):
 
     return redirect(url_for('home'))
 
-# Route to choose a division
 @app.route('/choose_division/<division_name>')
 def choose_division(division_name):
     data = load_data()
     students = data['divisions'].get(division_name, [])
     return render_template('display_students.html', students=students, division_name=division_name)
 
-# Route to add a student
 @app.route('/add_student/<division_name>', methods=['GET', 'POST'])
 def add_student(division_name):
     if request.method == 'POST':
@@ -96,7 +86,6 @@ def add_student(division_name):
 
     return render_template('add_student.html', division_name=division_name)
 
-# Route to update a student
 @app.route('/update_student/<division_name>/<student_id>', methods=['GET', 'POST'])
 def update_student(division_name, student_id):
     data = load_data()
@@ -113,7 +102,6 @@ def update_student(division_name, student_id):
 
     return render_template('update_student.html', student=student)
 
-# Route to delete a student
 @app.route('/delete_student/<division_name>/<student_id>', methods=['POST'])
 def delete_student(division_name, student_id):
     data = load_data()
@@ -122,7 +110,6 @@ def delete_student(division_name, student_id):
     flash('Student deleted successfully!', 'success')
     return redirect(url_for('choose_division', division_name=division_name))
 
-# Route to export data to Excel
 @app.route('/export/<division_name>')
 def export_to_excel(division_name):
     data = load_data()
@@ -143,10 +130,9 @@ def export_all_students():
     data = load_data()
     all_students = []
     
-    # Collect all students with their division names
     for division_name, students in data['divisions'].items():
         for student in students:
-            student['division'] = division_name  # Add division name to student data
+            student['division'] = division_name  
             all_students.append(student)
 
     df = pd.DataFrame(all_students)
